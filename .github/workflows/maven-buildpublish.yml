@@ -23,6 +23,8 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Maven
+      env:
+        PHANTOMJS_CDNURL: "https://npm.taobao.org/mirrors/phantomjs"
       run: mvn --batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true compile -P prod
 # comment out publish for now
 #    - name: Publish to GitHub Packages Apache Maven
